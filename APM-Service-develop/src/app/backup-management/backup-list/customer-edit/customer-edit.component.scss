@@ -1,0 +1,322 @@
+@import "../../../scss/ui/_variable.scss";
+@import "../../../scss/ui/_mixins";
+@import "~bootstrap/scss/bootstrap";
+:host {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+
+  .container {
+    width: 700px;
+    .header {
+      background: white;
+      border-radius: 5px 5px 0 0;
+      box-shadow: 0 0 10px 0 rgba(106, 120, 245, 0.15);
+      border: solid 1px #eaeaea;
+      height: 195px;
+      display: flex;
+      align-items: center;
+      padding: 25px;
+
+      .form-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 25px;
+      }
+
+      .upload-label {
+        border: 2px dashed gray;
+        width: 125px;
+        height: 125px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        font-weight: 100;
+        color: gray;
+        border-radius: 50%;
+      }
+
+      .uploaded-image {
+        object-fit: cover;
+        border: 3px solid white;
+        box-shadow: 0 0 10px 0 rgba(106, 120, 245, 0.15);
+        height: 125px;
+        width: 125px;
+        border-radius: 50%;
+      }
+
+      .inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+      }
+
+      .inputfile + .file {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 1px solid blue;
+        font-size: 1.25em;
+        font-weight: 700;
+        color: blue;
+        background-color: white;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .inputfile:focus + file,
+      .inputfile + file:hover {
+        background-color: red;
+      }
+    }
+
+    .header-tab-menu {
+      border-radius: 0 0 5px 5px;
+      background:#ffffff ;
+      padding: 10px 10px 0 10px;
+      font-size: 14px;
+
+      .menu-name {
+        width: fit-content;
+        text-align: center;
+        color: #111111;
+        padding-bottom: 10px;
+        &:hover {
+          cursor: pointer;
+          color: map_get($colors,apm-primary);
+          border-bottom: 3px solid map_get($colors,apm-primary);
+        }
+      }
+
+      .selected-menu {
+        width: fit-content;
+        color: map_get($colors,apm-primary);
+        border-bottom: 3px solid map_get($colors,apm-primary);
+      }
+    }
+
+    .info-container {
+      background: white;
+      border-radius: 5px;
+      box-shadow: 0 0 10px 0 rgba(106, 120, 245, 0.15);
+      border: solid 1px #eaeaea;
+      padding: 25px;
+      margin-top: 30px;
+      .title{
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 25px;
+      }
+      .title-container{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        .subtitle{
+          color: #e34645;
+          font-weight: 500;
+          font-size: 14px;
+          margin-bottom: 25px;
+          text-transform: uppercase;
+        }
+        .btn-container{
+          position: absolute;
+          right: 0;
+          .btn{
+            background: #ffffff;
+            color: map_get($colors,apm-primary);
+            border: 1px solid map_get($colors,apm-primary);
+            border-radius: 2px;
+            font-weight: 500;
+            font-size: 13px;
+            padding: 7px 15px;
+            text-transform: uppercase;
+          }
+        }
+      }
+      .positions{
+        .position{
+          margin-top: 25px;
+          padding: 10px 0;
+          border-bottom: 1px solid rgba(22, 42, 76, 0.15) !important;
+          .position-title{
+            font-size: 15px;
+            color: #111111;
+            font-weight: 500;
+          }
+          .item{
+            color: gray;
+            font-size: 15px;
+          }
+          .manager{
+            border: 1px solid #4aa1ff;
+            border-radius: 25px;
+            width: fit-content;
+            padding: 2px 10px;
+            background:#4aa1ff;
+            color: white;
+          }
+        }
+        .position:last-child{
+          border: none !important;
+        }
+      }
+
+
+
+    }
+.form-item-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  .form-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #495057;
+    font-weight: 500;
+textarea{
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+    .form-control {
+      font-size: 14px;
+    }
+
+    .custom-select {
+      color: #495057 !important;
+      font-size: 14px;
+
+      option {
+        color: #495057;
+        font-size: 14px;
+      }
+    }
+
+    .custom-datepicker {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 10px;
+      height: calc(1.5em + 0.75rem + 2px);
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+
+      ::ng-deep .mat-form-field-underline {
+        display: none !important;
+      }
+    }
+  }
+}
+    .form-item-multi-row {
+      display: flex;
+      flex-direction: column;
+      align-items: unset;
+      margin-bottom: 25px;
+      .departmant{
+        margin-top: 15px;
+      }
+      .date-row{
+        display: flex;
+        flex-direction: row;
+        margin-top: 15px;
+        .sub-title{
+          color: gray;
+          font-weight: 500;
+          font-size: 12px;
+        }
+      }
+      .form-control {
+        font-size: 14px;
+      }
+
+      .custom-select {
+        color: #495057 !important;
+        font-size: 14px;
+
+        option {
+          color: #495057;
+          font-size: 14px;
+        }
+      }
+
+      .custom-datepicker {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 10px;
+        height: 30px;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+
+        ::ng-deep .mat-form-field-underline {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  background: white;
+  width: 100%;
+  padding: 0;
+  height: 50px;
+  margin: 0;
+  left: 0;
+  position: fixed;
+  bottom: 0;
+  box-shadow: 0 0 10px 0 rgba(106, 120, 245, 0.15);
+  border: solid 1px #eaeaea;
+
+  .button-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .btn-save {
+      position: absolute;
+      right: 25px;
+      background: #e34645;
+      color: blue;
+      border-radius: 2px;
+      border: none;
+      font-weight: 500;
+      padding: 7px 15px;
+      text-transform: uppercase;
+      letter-spacing: 1;
+    }
+  }
+}
+
+

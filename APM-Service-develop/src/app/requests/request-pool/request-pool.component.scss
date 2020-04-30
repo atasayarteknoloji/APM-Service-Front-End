@@ -1,0 +1,15 @@
+@import "../../scss/ui/_variable.scss";
+@import "../../scss/ui/_mixins";
+@import "~bootstrap/scss/bootstrap";
+@import "../../scss/ui/_chips";
+
+:host{
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+.support-ticket{
+  padding: 25px;
+}

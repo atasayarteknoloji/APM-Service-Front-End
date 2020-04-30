@@ -1,0 +1,8 @@
+﻿
+<div class=" page-wrapper" [ngClass]="{'toggled' : getSideBarState()}">
+  <app-sidebar *ngIf="currentUser"></app-sidebar>
+  <div class="main-page" [ngClass]="{'main-page-toggle' : getSideBarState()}">
+    <router-outlet >
+    </router-outlet>
+  </div>
+</div>

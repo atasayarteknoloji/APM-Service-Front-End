@@ -1,0 +1,245 @@
+@import "../../scss/ui/_variable.scss";
+@import "../../scss/ui/_mixins";
+@import "~bootstrap/scss/bootstrap";
+
+.popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3434;
+  width: 100%;
+  height: 100%;
+  background: #111111;
+  opacity: 0.8;
+
+}
+
+.popup-container {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  z-index: 3435;
+  width: 500px;
+  height: 500px;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.btn-close-container {
+  position: relative;
+
+  .btn-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background: transparent;
+    border: none;
+
+    i {
+      font-size: 20px;
+    }
+  }
+}
+
+.popup-title {
+  margin-top: size(10px);
+  margin-left: size(15px);
+  font-size: size(18px);
+  font-weight: 400;
+  font-family: $font-default;
+  color: map_get($colors, title);
+}
+
+//: team popup css
+.team-container {
+  display: flex;
+
+  .team-or-person {
+    display: flex;
+    border-radius: 20px;
+    flex-grow: 1;
+
+    .btn-team-or-person {
+      margin-right: 5px;
+    }
+
+    .btn-active {
+      background: #6861CE;
+      color: #ffffff;
+      border: none;
+      font-size: 11px;
+      font-family: $font-default;
+      border-radius: 20px;
+      padding: 8px 16px !important;
+    }
+
+    .btn-passive {
+      background: rgba(222, 222, 222, 0.4);
+      color: #585c5d;
+      border: none;
+      font-size: 11px;
+      border-radius: 20px;
+      font-family: $font-default;
+      padding: 8px 16px !important;
+    }
+  }
+}
+
+.search-area {
+  display: flex;
+  justify-content: flex-end;
+
+  input {
+    width: 200px;
+    border-radius: 4px;
+    border: solid 1px #ebedf2;
+    background-color: map_get($colors, white);
+  }
+
+  ::placeholder {
+    padding-left: size(10px);
+    opacity: 0.4;
+    font-size: size(14px);
+    font-family: $font-default;
+    color: var(--greyish-brown);
+  }
+}
+
+.teams {
+  height: 255px;
+  overflow: auto;
+  margin-top: 20px;
+
+  .team {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 0;
+
+    .select-team {
+    }
+
+    .team-data {
+      display: flex;
+      flex-direction: row;
+      flex-grow: 1;
+
+
+      .team-photo {
+        img {
+          width: size(45px);
+          height: size(45px);
+        }
+      }
+
+      .info-team {
+        display: flex;
+        flex-direction: column;
+        margin-left: 15px;
+        justify-content: center;
+
+        .team-name {
+          color: #1572E8;
+          font-size: 13px;
+          margin-bottom: 5px;
+          font-weight: 400;
+          font-family: $font-default;
+        }
+
+        .emp-title {
+          font-size: 11px;
+          font-family: $font-default;
+          color: #7d7b7b;
+          letter-spacing: 0.05em;
+        }
+      }
+    }
+    .select-material {
+      .insert-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: size(20px);
+        height: size(20px);
+        margin-right: size(20px);
+        border-radius: 50%;
+        border: none;
+        font-size: size(8px);
+        background: map_get($colors, soft-green);
+        color: map_get($colors, white);
+      }
+    }
+  }
+
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  margin-top: size(30px);
+  .pagination{
+    align-items: center;
+    flex-grow: 1;
+    .prev{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: size(36px);
+      height: size(25px);
+      border: 1px solid #ddd;
+      color: #ddd;
+      border-radius: size(100px);
+      margin-right: size(5px);
+    }
+    .page-number{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: size(25px);
+      height: size(25px);
+      background: map_get($colors,denim);
+      color: white;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+    .next{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: size(36px);
+      height: size(25px);
+      border: 1px solid #ddd;
+      color: #ddd;
+      border-radius: size(100px);
+      margin-right: size(5px);
+    }
+  }
+  .btn-container {
+    float: right;
+
+    .cancel {
+      border: 1px solid map_get($colors, mirage);
+      background: map_get($colors, white);
+      color: map_get($colors, mirage);
+      border-radius: size(2px);
+      border: none;
+      font-weight: 500;
+      padding: size(7px) size(15px);
+      text-transform: uppercase;
+      font-size: size(14px);
+      font-family: $font-default;
+    }
+
+    .save {
+      background: map_get($colors, soft-green);
+      color: white;
+      border-radius: size(2px);
+      border: none;
+      font-weight: 500;
+      padding: size(7px) size(15px);
+      text-transform: uppercase;
+      font-size: size(14px);
+      font-family: $font-default;
+    }
+  }
+}

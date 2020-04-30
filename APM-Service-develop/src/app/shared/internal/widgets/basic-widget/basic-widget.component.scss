@@ -1,0 +1,59 @@
+@import "../../../../scss/ui/variable";
+@import "../../../../scss/ui/mixins";
+@import "../../../../../../node_modules/bootstrap/scss/bootstrap";
+.card{
+  position: relative;
+  z-index: 4;
+  border-radius: 5px;
+  box-shadow: 2px 6px 15px 0px rgba(69, 65, 78, 0.1);
+  background: white;
+  .card-body{
+    padding:15px 30px 15px 30px !important;
+    .icon{
+      min-height: 64px;
+      width: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      i{
+        color: map_get($colors,white);
+        font-size: 25px;
+      }
+    }
+    .col-stats{
+      align-items: center;
+      display: flex;
+      padding-left: 15px;
+    }
+    .numbers{
+      .card-category{
+        margin-top: 0;
+        font-size: 14px;
+        font-style: $font-default;
+        margin-bottom: 0px;
+        word-break: normal;
+        color: #8d9498;
+      }
+      .amount{
+        font-style: $font-default;
+        color: #2A2F5B;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.6;
+      }
+    }
+  }
+}
+.orange {
+  background: map_get($colors,sunshade) !important;
+}
+.green{
+  background: map_get($colors,soft-green) !important;
+}
+.purple{
+  background: map_get($colors,blue-marguerite) !important;
+}
+.blue{
+  background: map_get($colors,soft-blue) !important;
+}

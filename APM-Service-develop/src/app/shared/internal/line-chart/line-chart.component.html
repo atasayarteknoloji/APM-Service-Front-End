@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">Tamamlanan İşler</div>
+    <div class="card-desc">Son 6 aylık istatistik</div>
+  </div>
+  <div class="card-body">
+<div class="chart-wrapper">
+  <canvas baseChart
+          [datasets]="lineChartData"
+          [labels]="chartLabelArray"
+          [options]="lineChartOptions"
+          [colors]="lineChartColors"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins">
+  </canvas>
+</div>
+  </div>
+</div>

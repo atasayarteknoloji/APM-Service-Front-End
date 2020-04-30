@@ -1,0 +1,154 @@
+<app-page-header [title]="title" [subtitle]="subtitle">
+</app-page-header>
+<app-breadcrumb></app-breadcrumb>
+<div class="request-container">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-md-12 mb-3">
+      <div class="row-container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 ticket-detail">
+            <div class="ticket-detail-container">
+              <div class="type">Yazılım</div>
+              <div class="ticket-number">#{{reqDetails?.id}}</div>
+              <div class="product">{{reqDetails?.name}}</div>
+            </div>
+
+          </div>
+          <div class="col-sm-12 offset-md-2 col-md-4 user">
+            <div class="user-container">
+              <div class="title">Talebi Açan</div>
+              <div class="company-name">
+                Atasayar Teknoloji
+              </div>
+              <div class="user-name">
+                Büşra UYAR
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-12 col-md-9">
+            <div class="request-detail">
+              <div class="request-subject-date">
+                <div class="request-subject">
+                </div>
+              </div>
+            </div>
+            <div class="request-description">
+              {{reqDetails?.expRequest}}
+            </div>
+            <div class="team">
+              <div class="team-title">
+                Ekip
+              </div>
+              <div class="members" *ngIf="employee">
+                <div class="member" *ngFor="let emp of employee">
+                  <div class="member-name">
+                    <button class="btn btn-member">{{emp.firstName}} {{emp.lastName}} <i
+                        class="fas fa-times-circle"></i></button>
+                  </div>
+                </div>
+              </div>
+              <div class="members" *ngIf="teamsArray">
+                <div class="member" *ngFor="let team of teamsArray">
+                  <div class="member-name">
+                    <button class="btn btn-member">{{team.name}} <i
+                        class="fas fa-times-circle"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="toolbox" *ngIf="materials.length!=0">
+              <div class="toolbox-title">
+                Malzemeler
+              </div>
+              <div class="tools" *ngFor="let assignitem of materials ; let i = index">
+                <div class="tool">
+                  <div class="row">
+                    <div class="col-sm-10">
+                      <div class="tool-name">{{assignitem.name}}</div>
+                      <div class="amount">{{assignitem.amount}} Adet</div>
+                      <div class="store-amount">Depoda Kalan: -- Adet</div>
+                    </div>
+                    <div class="button-container col-sm-2 d-flex align-items-center">
+                      <button class="btn-edit"><i class="far fa-edit"></i></button>
+                      <button class="btn-delete" (click)="clickDeleteItem(assignitem)"><i
+                          class="far fa-trash-alt"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="date">
+              <div class="date-title">
+                Planlanan Tarih
+              </div>
+              <div class="row d-flex">
+                <div class="col-sm-12 col-md-4">
+                  <div class="form-item">
+                    <mat-form-field class="custom-datepicker w-100" floatLabel="never">
+                      <mat-label>Başlanıç</mat-label>
+                      <input matInput [matDatepicker]="picker" [(ngModel)]="begginDate" floatPlaceholder="never">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                  <div class="form-item">
+                    <mat-form-field class="custom-datepicker w-100" floatLabel="never">
+                      <mat-label>Bitiş</mat-label>
+                      <input matInput [matDatepicker]="endDatePicker" [(ngModel)]="endDate">
+                      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                      <mat-datepicker #endDatePicker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="note">
+              <div class="note-title">
+                Not
+              </div>
+
+              <div class="row">
+                <textarea class="note-area" [(ngModel)]="expAssignment"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <div class="assign-to-ticket-container">
+              <div class="assign-to-ticket">
+                EKLE
+              </div>
+              <div class="mt-3">
+                <button class="btn assign-button" (click)="clickOpenPopup('team')">
+                  <i class="fas fa-users"></i> Ekip
+                </button>
+              </div>
+              <div class="mt-3">
+                <button class="btn assign-button" (click)="clickOpenPopup('material')">
+                  <i class="fas fa-toolbox"></i> Malzeme
+                </button>
+              </div>
+              <div class="mt-3">
+                <button class="btn assign-button">
+                  <i class="fas fa-file"></i> Dosya
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row button-save-row">
+          <button (click)="clickAssignRequest()" class="btn btn-save">Kaydet</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--TEAM POPUP START -->
+  <!--<div class="popup" [ngStyle]="{'display':isClickOpenTeamPopup===true?'block':'none'}">
+  </div> -->
+  <!-- TEAM POPUP END-->
+
+  <!-- TOOBOX END-->

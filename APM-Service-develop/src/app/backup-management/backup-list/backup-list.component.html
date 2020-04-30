@@ -1,0 +1,17 @@
+<div class="request-form">
+
+  <div class="input-area">
+    <input
+      #search
+      class="search"
+      type="text"
+      placeholder="Aramak istediğiniz veriyi giriniz"
+      (keydown.enter)="onSearch(search.value)">
+  </div>
+  <ng2-smart-table [settings]="settings"
+                   [source]="requests"
+                   (custom)="onCustomAction($event)"
+                   (userRowSelect)="onUserRowSelect($event)">
+
+  </ng2-smart-table>
+</div>

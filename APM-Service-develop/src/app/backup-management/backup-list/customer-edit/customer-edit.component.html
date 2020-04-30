@@ -1,0 +1,165 @@
+
+<form class="request-form" [formGroup]="createRequestForm" (ngSubmit)="onClickSubmit()" >
+    <div class="row">
+       
+        <div class="employee col-12"  >
+
+            <div class="employee-data">
+                <div class="card-header">
+                    <h5 class="card-title"> Müşteri Bilğileri Güncele</h5>
+                </div>
+               <!-- <form [formGroup]="createRequestForm" (ngSubmit)="onClickSubmit()" class="request-form">-->
+                <div class="card-body">
+                    <div class="container">
+                         <div class="row form-row-item">
+                            
+
+
+                                <div class="col-12 w-100 form-item-container" *ngFor="let customer of customerdetail">
+                                 
+                                  <div class="form-item">
+                                    Müşteri Numarası
+                                </div>
+                                   
+                                    <input type="text" 
+                                    
+                                    [ngClass]="{ 'is-invalid': submitted }"
+                                    value="{{customer.idCostumer}}" 
+                                    formControlName="idCostumer"
+                                    class="form-control" />
+                                    <div *ngIf="submitted " class="invalid-feedback">
+                                    </div>
+                                 
+                                  <div class="form-item">
+                                        Müşteri İsim
+                                    </div>
+                                       
+                                        <input type="text" 
+                                        
+                                        [ngClass]="{ 'is-invalid': submitted }"
+                                        value="{{customer.name}}" 
+                                        formControlName="name"
+                                        class="form-control" />
+                                        <div *ngIf="submitted " class="invalid-feedback">
+                                        </div>
+                                    <!----->
+                                    <div class=" form-item">
+                                        Müşteri Soyisim
+                                    </div>
+                                    
+                                      <input type="text"
+                                                formControlName="family"
+                                      [ngClass]="{ 'is-invalid': submitted }"
+                                            value="{{customer.family}}"
+                                             class="form-control"/>
+                                             <div *ngIf="submitted " class="invalid-feedback">
+                                            </div>
+                                      <!----->
+                                      <div class="form-item">
+                                        Müşteri Mail Adresi
+                                    </div>
+                                  
+                                      <input type="text"
+                                      formControlName="mailAdress"
+                                      [ngClass]="{ 'is-invalid': submitted }"
+                                            value="{{customer.mailAdress}}"
+                                             class="form-control"/>
+                                             <div *ngIf="submitted " class="invalid-feedback">
+                                            </div>
+                                    
+                                    <!---->
+                                    <div class="form-item">
+                                        Müşteri Telefon Numarası
+                                    </div>
+                                    
+                                      <input type="text"
+                                      formControlName="telephon"
+                                      [ngClass]="{ 'is-invalid': submitted }"
+                                            value="{{customer.telephon}}"
+                                             class="form-control"/>
+                                             <div *ngIf="submitted" class="invalid-feedback">
+                                            </div>
+                                  
+                                  
+                                  <!---->
+                                 
+                                    <div class="form-item">
+                                        Şirket İsimi
+                                    </div>
+                                  
+                                      <input type="text"
+                                      formControlName="company"
+                                      [ngClass]="{ 'is-invalid': submitted }"
+                                            value="{{customer.company}}"
+                                             class="form-control"/>
+                                             <div *ngIf="submitted " class="invalid-feedback">
+                                            </div>
+                                  
+                                
+                                  <!---->
+                                  
+                                    <div class="form-item">
+                                        Şirket Adresi
+                                    </div>
+                                  
+                                      <input type="text"
+                                      formControlName="adresss"
+                                      [ngClass]="{ 'is-invalid': submitted }"
+                                            value="{{customer.adresss}}"
+                                             class="form-control"/>
+                                             <div *ngIf="submitted " class="invalid-feedback">
+                                            </div>
+                                    
+                                  
+                                  <!---->
+                                 
+                                    <div class="form-item">
+                                        Mac Adressi
+                                    </div>
+                                  
+                                      <input type="text"
+                                      formControlName="macAdress"
+                                      [ngClass]="{ 'is-invalid': submitted }"
+                                             value="{{customer.macAdress}}"
+                                             class="form-control"/>
+                                              <div *ngIf="submitted " class="invalid-feedback">
+                                        </div>
+                                  
+                                
+                                  <!---->
+                                
+                                    <div class="form-item">
+                                        Hard Numarası
+                                    </div>
+                                    
+                                      <input type="text"
+                                      [ngClass]="{ 'is-invalid': submitted }"
+                                      formControlName="hddNumber"
+                                            value="{{customer.hddNumber}}"
+                                             class="form-control"/>
+                                             <div *ngIf="submitted " class="invalid-feedback"></div>
+                                    </div>
+                                  </div>
+                                
+                    </div>
+                 
+                    <div class="row form-row-item">
+                      <div class="col-12">
+                        <button type="submit" class="sbm-button">Kaydet</button>
+                      </div>
+                   
+                    
+                      
+                    </div>
+                    
+                 
+                </div>
+             
+            </div>
+         
+        </div>
+     
+
+    </div>
+ 
+</form>

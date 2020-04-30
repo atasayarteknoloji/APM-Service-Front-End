@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="title">
+    Ekipler
+  </div>
+  <div class="search-container">
+    <input class="search" placeholder="Çalışan arayın..." [(ngModel)]="values" (keydown)=" onKeydown($event)"  >
+  </div>
+  <div class="actions-container">
+    <div class="actions">
+      <div class="btn-actions">
+        <button><i class="fas fa-plus"></i></button>
+      </div>
+      <div class="action-name">
+        Ekip Oluştur
+      </div>
+    </div>
+  </div>
+  <div class="row employees" >
+    <div class="employee col-sm-12 col-md-12 col-lg-3" *ngFor="let ekip of teams">
+      <div class="employee-photo">
+        <img  class="photo1" src="'data:image/jpeg;base64,'+ ekip.empList[0]" alt=""/>
+        <img  class="photo2" src="'data:image/jpeg;base64,'+ ekip.empList[1]" alt=""/>
+        <img  class="photo3" src="'data:image/jpeg;base64,'+ ekip.empList[2]"  alt=""/>
+      </div>
+      <div class="employee-data">
+        <div class="department">{{ekip.teamCountDTOs}} </div>
+        <div class="person-title">{{ekip.teamCountDTOs.c}} Çalışan </div>
+      </div>
+    </div>
+   
+    </div>
+  </div>
+
+

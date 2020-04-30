@@ -1,0 +1,143 @@
+@import "../../scss/ui/_variable.scss";
+@import "../../scss/ui/_mixins";
+@import "~bootstrap/scss/bootstrap";
+
+:host{
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: size(700px);
+  min-height: size(700px);
+  margin-bottom: size(25px);
+
+  .title {
+    opacity: 0.78;
+    font-size: size(48px);
+    font-weight: 600;
+    letter-spacing: size(-0.51px);
+    color: map-get($colors, title);
+    text-align: center;
+  }
+
+  .search-container {
+    text-align: center;
+    margin-top: size(20px);
+
+    .search {
+      width: size(455px);
+      height: size(35px);
+      margin-bottom: size(20px);
+      padding-left: 20px;
+      color: gray;
+      border-radius: size(20px);
+      box-shadow: 0 0 size(10px) 0 rgba(106, 120, 245, 0.15);
+      border: solid 1px #eaeaea;
+      background-color: map-get($colors, white);
+    }
+
+    ::placeholder {
+      padding-left: size(30px);
+      opacity: 0.4;
+      font-size: size(14px);
+      color: var(--greyish-brown);
+    }
+  }
+
+  .actions-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+
+    .actions {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin-right: size(30px);
+
+      .btn-actions {
+        button {
+          width: size(40px);
+          height: size(40px);
+          border-radius: 50%;
+          border: none;
+          background: #ffffff;
+          color: map-get($colors, denim);
+          border: 1px solid map-get($colors, denim);
+        }
+
+        :hover {
+          background: map-get($colors, denim);
+          color: #ffffff;
+        }
+      }
+
+      .action-name {
+        color: map-get($colors, sub-title);
+        font-weight: 500;
+      }
+    }
+  }
+
+  .employees {
+    justify-content: center;
+
+    .employee {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: size(20px);
+      background: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px 0 rgba(106, 120, 245, 0.15);
+      border: solid 1px #eaeaea;
+      margin: size(10px);
+      height: size(210px);
+
+      .employee-photo {
+        .photo {
+          width: size(80px);
+          height: size(80px);
+          border-radius: 50%;
+          box-shadow: 0 0 10px 0 rgba(106, 120, 245, 0.15);
+          border: solid 1px #eaeaea;
+        }
+      }
+
+      .employee-data {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: size(20px);
+
+        .name {
+          color: map-get($colors, title);
+          font-weight: 500;
+        }
+
+        .department {
+          font-weight: 500;
+        }
+
+        .person-title {
+          font-size: size(12px);
+          font-style: italic;
+          color: gray;
+        }
+      }
+    }
+
+    .employee:hover {
+      cursor: pointer;
+      border: 1px solid #80808063;
+    }
+  }
+}
+

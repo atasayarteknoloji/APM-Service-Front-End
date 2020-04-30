@@ -1,0 +1,59 @@
+<app-page-header [title]="'Çalışanlar'"
+                 [subtitle]="'Şirket çalışanlarını görebilir ve detaylı bilgi edinebilirsiniz.'">
+</app-page-header>
+<app-breadcrumb></app-breadcrumb>
+<div class="container">
+  <div class="title">
+    Çalışanlar
+  </div>
+  <div class="search-container">
+    <input class="search"
+           placeholder="Çalışan arayın..."
+           [(ngModel)]="values"
+           (keydown)=" onKeydown($event)"  >
+   <!--<span>Resut</strong>{{values}}</span>-->
+  </div>
+  <div class="actions-container">
+    <div class="actions">
+      <div class="btn-actions">
+        <button (click)="addNewEmployee()">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+      <div class="action-name">
+        Çalışan Ekle
+      </div>
+    </div>
+    <div class="actions">
+      <div class="btn-actions">
+        <button><i class="fas fa-plus"></i></button>
+      </div>
+      <div class="action-name">
+        Ekip Oluştur
+      </div>
+    </div>
+    <div class="actions">
+      <div class="btn-actions">
+        <button><i class="fas fa-plus"></i></button>
+      </div>
+      <div class="action-name">
+        Rol Oluştur
+      </div>
+    </div>
+  </div>
+  <div  class="row employees" >
+    <div class="employee col-3" *ngFor="let employee of employeesArray" >
+      <div class="employee-photo">
+       <!-- <img class="photo" src="data:image/jpeg;base64,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" alt="Red dot" />
+      </div>-->
+       <img class="photo" [src]="'data:image/jpeg;base64,'+employee.src"  alt="Red dot">
+       </div>
+      <div class="employee-data">
+        <div class="name">{{employee.firstName}}</div>
+        <div class="department">{{employee.lastName}}</div>
+        <div class="person-title">{{employee.departmentName}}</div>
+      </div>
+
+    </div>
+  </div>
+</div>

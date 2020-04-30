@@ -1,0 +1,40 @@
+.question {
+  font-size: 25px;
+}
+
+.description {
+  .descArea {
+    width: 100%;
+    height: 90px;
+    margin-top: 15px;
+    border-radius: 10px;
+    resize:none;
+  }
+
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+
+  .btn-outline-danger {
+    flex-grow: 1;
+    margin: 0 10px;
+
+    &:hover {
+      background: #dc3545;
+      color: white;
+    }
+  }
+
+  .btn-outline-success {
+    flex-grow: 1;
+    margin: 0 10px;
+
+    &:hover {
+      background: #28a745;
+      color: white;
+    }
+  }
+}

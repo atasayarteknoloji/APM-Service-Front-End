@@ -1,0 +1,32 @@
+@import "../../../scss/ui/variable";
+@import "../../../scss/ui/mixins";
+@import "../../../../../node_modules/bootstrap/scss/bootstrap";
+
+.card{
+  border-radius: 5px;
+  background-color: map_get($colors,white) !important;
+  margin-bottom: 30px;
+  box-shadow: 2px 6px 15px 0px rgba(69, 65, 78, 0.1);
+  border: 0px;
+.card-header{
+  display: flex;
+  flex-direction: column;
+  background-color: map_get($colors,white) !important;
+  .card-title{
+    margin: 0;
+    color: map_get($colors,title);
+    font-size: 20px;
+    font-weight: 400;
+    font-family: $font-default;
+    line-height: 1.6;
+  }
+  .card-desc{
+    margin-top: 8px;
+    font-size: 14px;
+    color: #8d9498;
+    margin-bottom: 0px;
+    word-break: normal;
+    font-family: $font-default;
+  }
+}
+}

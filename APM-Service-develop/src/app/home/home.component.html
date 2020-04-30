@@ -1,0 +1,31 @@
+﻿<app-page-header [title]="title" [subtitle]="subtitle">
+</app-page-header>
+<div class="container">
+  <div class="row widget-row">
+    <div class="col-sm-4">
+      <app-basic-widget [backgroundColor]="'blue'" [icon]="'new'" [cardCategory]="'Bugün Açılan İşlerim'"
+        [cardValue]="myJobToday">
+      </app-basic-widget>
+    </div>
+
+    <div class="col-sm-4">
+      <app-basic-widget [backgroundColor]="'green'" [icon]="'progress'" [cardCategory]="'Devam Eden İşlerim'"
+        [cardValue]="myJobInProgress">
+      </app-basic-widget>
+    </div>
+    <div class="col-sm-4">
+      <app-basic-widget [backgroundColor]="'purple'" [icon]="'completed'" [cardCategory]="'Tamamladığım İşlerim'"
+        [cardValue]="myJobDone">
+      </app-basic-widget>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <app-support-tickets></app-support-tickets>
+    </div>
+    <div class="col-6">
+      <app-line-chart [chartDataArray]="chartDataArray" [chartLabelArray]="chartLabelArray">
+      </app-line-chart>
+    </div>
+  </div>
+</div>

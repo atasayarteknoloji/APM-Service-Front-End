@@ -1,0 +1,36 @@
+$images-path: "/assets/images";
+$background-image: "bg.png"; //31, 11, 33, 56
+$video-path: "/assets/video";
+$background-video: "logo.mp4"; //31, 11, 33, 56
+//######################## fonts
+$font-open-sans: 'Open Sans', sans-serif;
+$font-default:'Lato', sans-serif;
+$font-default-size: 16px;
+$font-current-size: 16px;
+
+
+$gradient-breadcrumb:linear-gradient(-45deg, #06418E, #1572E8) !important;
+$colors: (
+  denim:#1572e8, //PRIMARY COLOR
+  black_squeeze:#f9fbfd,//BODY BACKGROUND
+  white:#ffffff,
+  mirage:#1a2035, //SECONDARY COLOR
+  blue-marguerite:#6861ce,//SECONDARY COLOR
+  sunshade:#fe9d27,//SECONDARY COLOR
+  carnation:#f25961,//SECONDARY COLOR
+  forest-green:#2bb930,//SECONDARY COLOR
+  soft-green:#31CE36,
+  soft-blue:#48ABF7,
+title:#2A2F5B,
+  subtitle:#8d9498
+);
+
+
+
+%maximize {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto;
+}

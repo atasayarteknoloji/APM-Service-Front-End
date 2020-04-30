@@ -1,0 +1,33 @@
+@import "../../../scss/ui/variable";
+@import "../../../scss/ui/mixins";
+@import "../../../../../node_modules/bootstrap/scss/bootstrap";
+.breadcrumb {
+  background: none;
+  color: #2A2F5B;
+  font-size: 15px;
+  font-family: $font-default;
+  margin: 0;
+.container {
+  display: flex;
+  flex-direction: row;
+
+  .home-icon {
+    margin-left: 10px;
+    width: 15px;
+  }
+
+  .next-icon {
+    width: 15px;
+    margin: 0 15px;
+  }
+
+  .back-button {
+    border-right: 1px solid #2A2F5B;
+    color: #2A2F5B;
+    padding-right: 10px;
+    font-family: $font-default;
+  }
+}
+
+
+}

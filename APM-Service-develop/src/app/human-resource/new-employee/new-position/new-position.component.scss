@@ -1,0 +1,98 @@
+@import "../../../scss/ui/_variable.scss";
+@import "../../../scss/ui/_mixins";
+@import "~bootstrap/scss/bootstrap";
+.card-header{
+  padding: 1rem 1.25rem;
+  background-color: white;
+  border-bottom: 1px solid #ebecec !important;
+  .card-title{
+    margin: 0;
+    color: map_get($colors,title);
+    font-size: size(20px);
+    font-weight: 400;
+    line-height: 1.6;
+    font-family: $font-default;
+  }
+}
+.form-container {
+  padding: size(20px);
+  .form-item-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+
+    .form-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 5px;
+      font-size: 14px;
+      color: #495057;
+      font-weight: 500;
+      font-family: $font-default;
+      .form-control {
+        font-size: 14px;
+        font-family: $font-default;
+      }
+
+      .custom-select {
+        color: #495057 !important;
+        font-size: 14px;
+        font-family: $font-default;
+
+        option {
+          color: #495057;
+          font-size: 14px;
+        }
+      }
+
+      .custom-datepicker {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 10px;
+        height: calc(1.5em + 0.75rem + 2px);
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        font-family: $font-default;
+        ::ng-deep .mat-form-field-underline {
+          display: none !important;
+        }
+      }
+    }
+  }
+
+}
+.footer {
+  .btn-container {
+    float: right;
+
+    .cancel {
+      background: map_get($colors, white);
+      color: #111111;
+      border-radius: 2px;
+      border: none;
+      font-weight: 500;
+      padding: 7px 15px;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-family: $font-default;
+    }
+
+    .save {
+      background: map_get($colors, soft-green);
+      color: white;
+      border-radius: 2px;
+      border: none;
+      font-weight: 500;
+      padding: 7px 15px;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+  }
+}

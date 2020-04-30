@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="popup-title">Ekip Seç</div>
+  </div>
+</div>
+<hr/>
+<div class="team-container">
+  <div class="team-or-person">
+    <button [class]="isClickTeamButton ?'btn-team-or-person btn-active':'btn-team-or-person btn-passive'"
+            (click)="clickGetTeams()">
+      Ekip
+    </button>
+    <button [class]="!isClickTeamButton ?'btn-team-or-person btn-active':'btn-team-or-person btn-passive'"
+            (click)="clickGetEmployee()">
+      Kişi
+    </button>
+  </div>
+  <div class="search-area">
+    <input placeholder="Ara"/>
+  </div>
+</div>
+
+<div class="teams" *ngIf="!isClickTeamButton">
+  <div class="team" *ngFor="let employee of employees">
+    <div class="team-data">
+      <div class="team-photo">
+        <img [src]="'data:image/jpeg;base64,'+employee.src">
+      </div>
+      <div class="info-team">
+        <div class="team-name">
+          {{employee.firstName}} {{employee.lastName}}
+        </div>
+        <div class="emp-title">
+          {{employee.titleName}}
+        </div>
+      </div>
+    </div>
+    <div class="select-material">
+      <button  class="insert-btn">
+        <i class='fas fa-plus' (click)="onCheckboxChange(employee.id , 'calisan')"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="teams" *ngIf="isClickTeamButton">
+  <div class="team" *ngFor="let team of teams">
+    <div class="team-data">
+      <div class="team-photo">
+        <!--THERE IS NO PHOTO-->
+      </div>
+      <div class="info-team">
+        <div class="team-name">
+          {{team.name}}
+        </div>
+      </div>
+    </div>
+    <div class="select-material">
+      <button  class="insert-btn">
+        <i class='fas fa-plus' (click)="onCheckboxChange(team.id,'ekip')"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="pagination">
+    <div class="prev"  (click)="clickPagination('prev')">
+      <i class="fas fa-chevron-left"></i>
+    </div>
+    <div class="page-number">{{pageNumber}}</div>
+    <div class="next" (click)="clickPagination('next')">
+      <i class="fas fa-chevron-right"></i>
+    </div>
+  </div>
+  <div class="btn-container">
+    <button class="btn cancel" (click)="clickClosePopup('close')">
+      İptal
+    </button>
+    <button class="btn save" (click)="clickClosePopup('save')">
+      Kaydet
+    </button>
+  </div>
+</div>

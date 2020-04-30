@@ -1,0 +1,17 @@
+<div class="card"
+[ngClass]="''">
+  <div class="card-body">
+    <div class="row align-items-center">
+
+        <div class="icon" [ngClass]="backgroundColor">
+          <i [ngClass]="getIcon()"></i>
+        </div>
+      <div class="col col-stats ml-3 ml-sm-0">
+        <div class="numbers">
+          <div class="card-category">{{cardCategory}}</div>
+          <div class="amount">{{cardValue}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

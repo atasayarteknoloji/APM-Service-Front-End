@@ -1,0 +1,462 @@
+<app-page-header [title]="title" [subtitle]="subtitle">
+</app-page-header>
+<app-breadcrumb></app-breadcrumb>
+<div class="container">
+  <div class="header">
+    <div class="row w-100 d-flex align-items-center">
+      <div class="col-sm-12 col-md-2">
+        <input type="file" name="file" id="file" #fileInput (change)="fileProgress($event)" class="inputfile" />
+        <div class="image-preview">
+          <label *ngIf="!previewUrl" class="upload-label" for="file">
+            +
+          </label>
+
+          <img class="uploaded-image" *ngIf="previewUrl" [src]="previewUrl" />
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-5">
+        <!-- NAME-->
+        <div class="form-item">
+          <input type="text" placeholder="Ad" class="form-control" />
+
+        </div>
+        <!-- SURNAME-->
+        <div class="form-item">
+
+          <input type="text" placeholder="Soyad" class="form-control" />
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="header-tab-menu">
+    <div class="row">
+      <div class="col-sm-12 col-md-3 d-flex justify-content-center">
+        <div class="menu-name" [ngClass]="{'selected-menu' : isClickJobInfo}" (click)="clickJobInfo()">
+          Genel
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-3 d-flex justify-content-center">
+        <div class="menu-name" [ngClass]="{'selected-menu' : isClickPersonalInfo}" (click)="clickPersonalInfo()">
+          Kariyer
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-3 d-flex justify-content-center">
+        <div class="menu-name" [ngClass]="{'selected-menu' : isClickContactInfo}" (click)="clickContactInfo()">
+          Kişisel Bilgiler
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-3 d-flex justify-content-center">
+        <div class="menu-name" [ngClass]="{'selected-menu' : isClickEducationInfo}" (click)="clickEducationInfo()">
+          Diğer Bilgiler
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- job info container -->
+  <div *ngIf="isClickJobInfo" class="info-container">
+    <div class="row">
+      <!-- e-mail-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class=" form-item">
+          E-Posta(İş)
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder=" E-Posta(İş)" class="form-control" />
+        </div>
+      </div>
+      <!-- e-mail-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          E-posta(Kişisel)
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder=" E-Posta(İş)" class="form-control" />
+        </div>
+      </div>
+      <!-- telephone-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class=" form-item">
+          Telefon(İş)
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder="Telefon(İş)" class="form-control" />
+        </div>
+      </div>
+      <!-- telephone-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Telefon (Kişisel)
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder=" Telefon (Kişisel)" class="form-control" />
+        </div>
+      </div>
+      <!-- job start date-->
+      <div class="col-sm-12 col-md-6 w-100  form-item-container">
+        <div class="form-item">
+          İşe başlama tarihi
+        </div>
+        <div class="form-item">
+          <mat-form-field class="custom-datepicker w-100" floatLabel="never">
+            <mat-label>İşe başlama tarihi</mat-label>
+            <input matInput [matDatepicker]="picker" floatPlaceholder="never">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- connect-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Erişim Türü
+        </div>
+        <div class="form-item">
+          <select class="custom-select">
+            <option selected>Seçiniz</option>
+            <option>Hesap Sahibi</option>
+            <option>Yönetici</option>
+            <option>Çalışan</option>
+          </select>
+        </div>
+      </div>
+      <!-- contract type-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Sözleşme Türü
+        </div>
+        <div class="form-item">
+          <select class="custom-select">
+            <option selected>Seçiniz</option>
+            <option *ngFor="let workType of workTypes">{{workType.workTypeName}}</option>
+          </select>
+        </div>
+      </div>
+      <!-- job end date-->
+      <div class="col-sm-12 col-md-6 w-100  form-item-container">
+        <div class="form-item">
+          Sözleşme Bitiş Tarihi
+        </div>
+        <div class="form-item">
+          <mat-form-field class="custom-datepicker w-100" floatLabel="never">
+            <mat-label>İşe başlama tarihi</mat-label>
+            <input matInput [matDatepicker]="endDatePicker">
+            <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #endDatePicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- career info container -->
+  <div *ngIf="isClickPersonalInfo" class="info-container">
+    <div class="row title-container">
+      <div class="subtitle">
+        Pozisyon
+      </div>
+      <div class="btn-container">
+        <button class="btn" (click)="addPosition()"> Pozisyon Ekle</button>
+      </div>
+    </div>
+    <div class="positions">
+      <div class="position row" *ngFor="let pItem of positionList">
+        <div class="position-title col-12">{{pItem.title}}</div>
+        <div class="position-left-part col-sm-12 col-md-6">
+          <div class="item">{{pItem.company}}</div>
+          <div class="item">
+            {{pItem.startDate|date:'mediumDate'}}-
+            <span *ngIf="pItem.endDate">{{pItem.endDate|date:'mediumDate'}}</span>
+            <span *ngIf="!pItem.endDate">Devam Ediyor</span>
+          </div>
+          <div class="item">
+            <i class="fas fa-map-marker-alt"></i> {{pItem.branch}}
+          </div>
+        </div>
+        <div class="position-right-part col-sm-12 col-md-6">
+          <div class="item">
+            {{pItem.departmant}}
+          </div>
+          <div class="item">
+            {{pItem.workType}}
+          </div>
+          <div class="manager">
+            <i class="fas fa-user-alt"></i> {{pItem.manager}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- personal info container -->
+  <div *ngIf="isClickContactInfo" class="info-container">
+    <div class="row title-container">
+      <div class="subtitle">
+        Kişisel Bilgiler
+      </div>
+    </div>
+    <div class="row">
+      <!--date of birth-->
+      <div class="col-sm-12 col-md-6 w-100  form-item-container">
+        <div class="form-item">
+          Doğum Tarihi
+        </div>
+        <div class="form-item">
+          <mat-form-field class="custom-datepicker w-100" floatLabel="never">
+            <mat-label>İşe başlama tarihi</mat-label>
+            <input matInput [matDatepicker]="endDatePicker">
+            <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #endDatePicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- identification number-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Kimlik Numarası
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder="Kimlik Numarası" class="form-control" />
+        </div>
+      </div>
+      <!-- marital status-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Medeni Hal
+        </div>
+        <div class="form-item">
+          <select class="custom-select">
+            <option selected>Seçiniz</option>
+            <option *ngFor="let civilStatu of civilStatus ">{{civilStatu.civilStatusName}} </option>
+          </select>
+        </div>
+      </div>
+      <!-- gender-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Cinsiyet
+        </div>
+        <div class="form-item">
+          <select class="custom-select">
+            <option selected>Seçiniz</option>
+            <option *ngFor="let sexualitie of sexualities ">{{sexualitie.sexualityName}} </option>
+          </select>
+        </div>
+      </div>
+      <!-- -->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Engel Derecesi
+        </div>
+        <div class="form-item">
+          <select class="custom-select">
+            <option selected>Seçiniz</option>
+            <option>Yok</option>
+            <option *ngFor="let disability of disabilities ">{{disability.dEgreOfDisabilityName}} </option>
+          </select>
+        </div>
+      </div>
+      <!-- Nationality-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Uyruğu
+        </div>
+        <div class="form-item">
+          <select class="custom-select">
+            <option selected>Seçiniz</option>
+            <option *ngFor="let nationality of nationalities ">{{nationality.nationaltyName}} </option>
+          </select>
+        </div>
+      </div>
+      <!-- Children -->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Çocuk Sayısı
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder="Çocuk Sayısı" class="form-control" />
+        </div>
+      </div>
+      <!-- BLOOD-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Kan Grubu
+        </div>
+        <div class="form-item">
+          <select class="custom-select">
+            <option selected>Seçiniz</option>
+            <option *ngFor="let bloodGroup of bloodGroups"> {{bloodGroup.bloodGroupName}}</option>
+          </select>
+        </div>
+      </div>
+      <!-- Education Status-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Eğitim Durumu
+        </div>
+        <div class="form-item">
+          <select class="custom-select">
+            <option selected>Seçiniz</option>
+            <option *ngFor="let educationStatu of educationStatus"> {{educationStatu.educationStatusName}}</option>
+          </select>
+        </div>
+      </div>
+      <!-- Graduate Status-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Tamamlanan En Yüksek Eğitim Seviyesi
+        </div>
+        <div class="form-item">
+          <select class="custom-select">
+            <option selected>Seçiniz</option>
+            <option *ngFor="let complatedEdication of complatedEdications"> {{complatedEdication.complatedEdicationName}}</option>
+          </select>
+        </div>
+      </div>
+      <!-- Graduate School Name-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Son Tamamlanan Eğitim Kurumu
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder="Son Tamamlanan Eğitim Kurumu" class="form-control" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- other container -->
+  <div *ngIf="isClickEducationInfo" class="info-container">
+    <div class="row title-container">
+      <div class="subtitle">
+        Adres Bilgileri
+      </div>
+    </div>
+    <div class="row">
+      <!-- address info -->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Adres Bilgileri
+        </div>
+        <div class="form-item">
+          <textarea placeholder="Adres Bilgileri" rows="2"></textarea>
+        </div>
+      </div>
+      <!-- home phone-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Ev Telefonu
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder="Ev Telefonu" class="form-control" />
+        </div>
+      </div>
+      <!-- country-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Ülke
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder="Ülke" class="form-control" />
+        </div>
+      </div>
+      <!-- city-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Şehir
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder="Şehir" class="form-control" />
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="row title-container">
+      <div class="subtitle">
+        Banka Bilgileri
+      </div>
+    </div>
+    <div class="row">
+      <!-- Bank Name-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Banka Adı
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder="Banka Adı" class="form-control" />
+        </div>
+      </div>
+      <!-- account type-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Hesap Tipi
+        </div>
+        <div class="form-item">
+          <select class="custom-select">
+            <option selected>Seçiniz</option>
+            <option>Vadesiz</option>
+            <option>Vadeli</option>
+            <option>Çek</option>
+            <option>Diğer</option>
+          </select>
+        </div>
+      </div>
+      <!-- account no-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Hesap No
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder="Hesap No" class="form-control" />
+        </div>
+      </div>
+      <!-- IBAN-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          IBAN
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder="IBAN" class="form-control" />
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="row title-container">
+      <div class="subtitle">
+        Acil Durum Bilgileri
+      </div>
+    </div>
+    <div class="row">
+      <!--Emergency Call -person-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Acil Durumda Aranacak Kişi
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder="Acil Durumda Aranacak Kişi" class="form-control" />
+        </div>
+      </div>
+      <!--Emergency Call -Degree of Proximity-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Acil Durumda Aranacak Kişi Yakınlık Derecesi
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder=" Acil Durumda Aranacak Kişi Yakınlık Derecesi" class="form-control" />
+        </div>
+      </div>
+      <!-- Emergency Call Phone-->
+      <div class="col-sm-12 col-md-6 w-100 form-item-container">
+        <div class="form-item">
+          Acil Durumda Aranacak Kişi Telefon
+        </div>
+        <div class="form-item">
+          <input type="text" placeholder="Acil Durumda Aranacak Kişi Telefon" class="form-control" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="button-container">
+    <button class="btn-save">Kaydet</button>
+  </div>
+</div>

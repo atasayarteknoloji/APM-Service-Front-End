@@ -1,0 +1,139 @@
+<div class="card-header">
+  <div class="card-title">
+    Pozisyon Ekle
+  </div>
+  </div>
+
+<mat-dialog-div [formGroup]="form">
+  <div class="row form-container">
+    <!-- company-->
+    <div class="col-6 w-100 form-item-container">
+      <div class="form-item">
+        Şirket
+      </div>
+      <div class="form-item">
+        <select class="custom-select" formControlName="company">
+          <option disabled="disabled" selected="selected">Seçiniz</option>
+          <option>APM</option>
+          <option>Atasayar Teknoloji</option>
+        </select>
+      </div>
+    </div>
+    <!-- branch office-->
+    <div class="col-6 w-100 form-item-container">
+      <div class="form-item">
+        Şube
+      </div>
+      <div class="form-item">
+        <select class="custom-select" formControlName="branch">
+          <option disabled="disabled" selected="selected">Seçiniz</option>
+          <option>Ankara</option>
+          <option>Bursa</option>
+        </select>
+      </div>
+    </div>
+    <!-- departmant-->
+    <div class="col-6 w-100 form-item-container">
+      <div class="form-item">
+        Departman
+      </div>
+      <div class="form-item">
+        <select class="custom-select" formControlName="departmant">
+          <option disabled="disabled" selected="selected">Seçiniz</option>
+          <option>Halkla İlişkiler</option>
+          <option>İnsan Kaynakları</option>
+          <option>Muhasebe ve Finans</option>
+          <option>Müşteri Hizmetleri</option>
+          <option>Yazılım</option>
+        </select>
+      </div>
+    </div>
+    <!-- title-->
+    <div class="col-6 w-100 form-item-container">
+      <div class="form-item">
+        Ünvan
+      </div>
+      <div class="form-item">
+        <select class="custom-select" formControlName="title">
+          <option disabled="disabled" selected="selected">Seçiniz</option>
+          <option>Yazılım Geliştirici</option>
+          <option>Destek Uzmanı</option>
+          <option>Genel Müdür</option>
+          <option>Halkla İişkiler Uzmanı</option>
+          <option>Personel Müdürü</option>
+        </select>
+      </div>
+    </div>
+    <!-- manager-->
+    <div class="col-6 w-100 form-item-container">
+      <div class="form-item">
+        Yönetici
+      </div>
+      <div class="form-item">
+        <select class="custom-select" formControlName="manager">
+          <option disabled="disabled" selected="selected">Seçiniz</option>
+          <option>Yasin Atasayar</option>
+          <option>Büşra Uyar</option>
+        </select>
+      </div>
+    </div>
+    <!-- work type-->
+    <div class="col-6 w-100 form-item-container">
+      <div class="form-item">
+        Çalışma Şekli
+      </div>
+      <div class="form-item">
+        <select class="custom-select" formControlName="workType">
+          <option disabled="disabled" selected="selected">Seçiniz</option>
+          <option>Tam Zamanlı</option>
+          <option>Yarı Zamanlı</option>
+          <option>Geçici</option>
+          <option>Kontratlı</option>
+          <option>Serbest Çalışan</option>
+          <option>Stajyer</option>
+        </select>
+      </div>
+    </div>
+    <!-- title start date-->
+    <div class="col-6 w-100  form-item-container">
+      <div class="form-item">
+        Başlangıç Tarihi
+      </div>
+      <div class="form-item">
+        <mat-form-field class="custom-datepicker w-100" floatLabel="never">
+          <mat-label>Başlangıç Tarihi</mat-label>
+          <input matInput formControlName="startDate" [matDatepicker]="endDatePicker">
+          <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #endDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <!-- title start date-->
+    <div class="col-6 w-100  form-item-container">
+      <div class="form-item">
+        Bitiş Tarihi
+      </div>
+      <div class="form-item">
+        <mat-form-field class="custom-datepicker w-100" floatLabel="never">
+          <mat-label>Bitiş Tarihi</mat-label>
+          <input matInput formControlName="endDate" [matDatepicker]="startDatePicker">
+          <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <mat-form-div>
+  </mat-form-div>
+</mat-dialog-div>
+
+<div class="footer">
+  <div class="btn-container">
+    <button class="btn cancel" (click)="close()">
+      İptal
+    </button>
+    <button class="btn save" (click)="save()">
+      Kaydet
+    </button>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<app-page-header [title]="title" [subtitle]="subtitle">
+</app-page-header>
+<app-breadcrumb></app-breadcrumb>
+<div class="page-container">
+  <div class="request-form">
+    <div class="card-header">
+      <div class="d-flex align-items-center">
+        <div class="card-title">
+          Talep Kapatma
+        </div>
+        <div class="btn-container">
+          <button class="btn btn-export">
+            <i class="fas fa-file-download"></i> Yazdır
+          </button>
+          <button class="btn btn-pdf">
+            <i class="fas fa-file-pdf"></i> Pdf
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 w-100 toolbox">
+      <div class="toolbox-title">
+        Malzemeler
+      </div>
+
+      <div class="tools">
+        <perfect-scrollbar>
+          <div class="tool" *ngFor="let item of itemsModel;let i= index">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <div class="tool-name">{{item.name}}</div>
+                <div class="amount"> {{item.amount}} {{item.altBirim}} </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div class="used-container">
+                  <div> <input class="used-input " name="deliveredAmount-{{i}}" min="0" max="999" [(ngModel)]="item.deliveredAmount" type="number"> </div>
+                  <div class="used-text">Kullanılan {{item.altBirim}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </perfect-scrollbar>
+      </div>
+
+    </div>
+    <div class="col-sm-12 col-md-12 w-100 form-item-container">
+      <div class="form-item">
+        Servis Tipi
+      </div>
+      <div class="form-item">
+        <select class="custom-select" (change)="changeServiceTypeEvent($event)" >
+          <option selected>Seçiniz</option>
+          <option *ngFor="let service of serviceType">{{service.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 w-100 form-item-container">
+      <div class="form-item">
+        Arıza Notu
+      </div>
+      <div class="form-item">
+        <textarea placeholder="Arıza Notu" rows="2" [(ngModel)]="expClosing"></textarea>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 w-100 form-item-container">
+      <div class="form-item">
+        Ekstra
+      </div>
+      <div class="form-item">
+        <textarea placeholder="Ekstra" rows="2"  [(ngModel)]="note1"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="button-container">
+    <button class="btn-save" (click)="clickCloseRequest()">Kaydet</button>
+  </div>
+</div>

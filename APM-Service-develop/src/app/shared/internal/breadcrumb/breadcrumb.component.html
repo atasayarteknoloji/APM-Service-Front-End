@@ -1,0 +1,10 @@
+<div class="breadcrumb">
+  <div *ngFor="let breadcrumb of breadcrumbs">
+    <div class="container" [routerLink]="breadcrumb.url" routerLinkActive="router-link-active">
+      <div class="back-button"> Geri </div>
+      <div><img class="home-icon" src="../../../../assets/icons/020-home.png"> </div>
+      <div><img class="next-icon" src="../../../../assets/icons/next.png"> </div>
+      <div>{{ breadcrumb.label }}</div>
+    </div>
+  </div>
+</div>

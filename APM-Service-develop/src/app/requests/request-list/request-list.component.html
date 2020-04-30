@@ -1,0 +1,63 @@
+<app-page-header
+[title]="title"
+[subtitle]="subtitle">
+</app-page-header>
+<app-breadcrumb></app-breadcrumb>
+<div class="request-form">
+  <div class="card-header">
+    <div class="d-flex align-items-center">
+      <div class="card-title">
+        Talep Listesi
+      </div>
+      <button type="button" class="btn btn-new-ticket">
+        <div class="btn-name"  [routerLink]="['/request-open']">
+          <i class="far fa-file-alt mr-1"></i>Talep Aç
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class="row button-search-area">
+  <div class="col-sm-12 col-md-8 tab-button">
+    <button type="button"
+            (click)="clickRequestButton('new')"
+            [class]="clickNewRequest === true?'btn-clicked btn-request':'btn-request'"
+    >
+      <div [class]="clickNewRequest === true?'btn-name-clicked btn-name':'btn-name'">
+        Yeni Talepler
+      </div>
+    </button>
+    <button type="button"
+            (click)="clickRequestButton('progress')"
+            [class]="clickProgressRequest === true?'btn-clicked btn-request':'btn-request'"
+    >
+      <div [class]="clickProgressRequest === true?'btn-name-clicked btn-name':'btn-name'"
+      >
+        İşlemdeki Talepler
+      </div>
+    </button>
+    <button type="button"
+            (click)="clickRequestButton('completed')"
+            [class]="clickCompletedRequest === true?'btn-clicked btn-request':'btn-request'"
+    >
+      <div [class]="clickCompletedRequest === true?'btn-name-clicked btn-name':'btn-name'">
+        Tamamlanan Talepler
+      </div>
+    </button>
+
+  </div>
+  <div class="col-sm-12 col-md-4 input-area">
+    <input
+      #search
+      class="search"
+      type="text"
+      placeholder="Aramak istediğiniz veriyi giriniz"
+      (keydown.enter)="onSearch(search.value)">
+  </div>
+  </div>
+  <ng2-smart-table [settings]="settings"
+                   [source]="requests"
+                   (custom)="onCustomAction($event)"
+                   (userRowSelect)="onUserRowSelect($event)">
+
+  </ng2-smart-table>
+</div>

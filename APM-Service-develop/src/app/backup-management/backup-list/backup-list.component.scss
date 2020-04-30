@@ -1,0 +1,205 @@
+@import "../../scss/ui/_variable.scss";
+@import "../../scss/ui/_mixins";
+@import "~bootstrap/scss/bootstrap";
+
+:host /deep/ a:link {
+}
+
+:host /deep/ a:hover {
+}
+
+:host /deep/ a:focus {
+}
+
+:host /deep/ table thead tr:nth-child(even) {
+  background: map-get($colors, white) !important;
+}
+
+:host /deep/ table thead {
+  background: map-get($colors, main-blue) !important;
+  color: map-get($colors, white);
+  line-height: size(10px);
+}
+
+:host /deep/ table tbody tr:nth-child(even) {
+  // background: white!important;
+  border-bottom: 1px solid map-get($colors, light-gray);
+
+}
+
+:host /deep/ table tbody tr:nth-child(odd) {
+  // background: map-get($colors,light-gray) !important;
+  border-bottom: 1px solid map-get($colors, light-gray);
+}
+
+:host /deep/ ng2-smart-table-title {
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+:host /deep/ ng2-smart-table-title > a {
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: 500;
+
+}
+
+
+
+
+:host /deep/ ng2-st-tbody-edit-delete {
+  display: flex !important;
+  height: 0 !important;
+}
+
+:host /deep/ th.ng2-smart-actions.ng-star-inserted {
+  width: 125px !important;
+}
+
+
+:host /deep/ ng2-st-tbody-custom a.ng2-smart-action.ng2-smart-action-custom-custom {
+  display: inline-block;
+  width: 25px;
+  text-align: center;
+  margin-left: 5px;
+  font-size: 15px;
+}
+
+:host /deep/ table tbody {
+  // background: map-get($colors,light-gray) !important;
+  font-size: 15px;
+}
+
+
+:host /deep/ ng2-st-tbody-custom a.ng2-smart-action.ng2-smart-action-custom-custom:hover {
+  box-shadow: 0 10px 10px 0 rgba(106, 120, 245, 0.15);
+}
+
+:host /deep/ ng2-st-tbody-custom a:first-child {
+
+  width: size(25px) !important;
+  height: size(25px);
+  background: #f5a623;
+  color: white;
+  border-radius: size(5px);
+
+  i {
+    font-size: size(15px);
+  }
+}
+
+:host /deep/ ng2-st-tbody-custom a:nth-child(2) {
+
+  width: size(25px) !important;
+  height: size(25px);
+  background: #007bff;
+  padding: 1px;
+  color: white;
+  border-radius: 5px;
+
+  i {
+    font-size: 15px;
+    font-weight: 100;
+  }
+}
+
+:host /deep/ ng2-st-tbody-custom a:nth-child(3){
+
+  width: size(25px) !important;
+  height: size(25px);
+  background: map-get($colors, green);
+  color: white;
+  border-radius: 5px;
+
+  i {
+    font-size: 15px;
+  }
+}
+
+:host /deep/ ng2-st-tbody-custom a:last-child{
+
+  width: size(25px) !important;
+  height: size(25px);
+  background: map-get($colors, ats-red);
+  color: white;
+  border-radius: size(5px);
+
+  i {
+    font-size: 15px;
+  }
+}
+
+.request-form {
+
+  .input-area {
+    display: flex;
+    justify-content: center;
+
+    .search {
+      width: size(455px);
+      height: size(35px);
+      margin-bottom: size(20px);
+      border-radius: size(20px);
+      box-shadow: 0 0 size(10px) 0 rgba(106, 120, 245, 0.15);
+      border: solid 1px #eaeaea;
+      background-color: map-get($colors, white);
+
+    }
+
+    ::placeholder {
+      padding-left: 30px;
+      opacity: 0.4;
+      font-size: size(14px);
+      color: var(--greyish-brown);
+    }
+  }
+
+  .tab-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    .btn-request {
+      width: 187px;
+      border-radius: 20px;
+      border: transparent !important;
+      background: transparent !important;
+
+      .btn-name {
+        padding: 5px;
+        font-size: 15px;
+        font-weight: 400;
+        opacity: 0.3;
+        color: map-get($colors, black-text);
+      }
+
+      .btn-name-clicked {
+        opacity: 1 !important;
+        color: map-get($colors, white) !important;
+      }
+    }
+
+    .btn-clicked {
+      background: map-get($colors, main-blue) !important;
+      color: map-get($colors, white) !important;
+    }
+
+    .new-request {
+      position: relative;
+      right: -76px;
+
+      .btn-warning {
+        .btn-name {
+          font-size: 15px;
+          font-weight: 500;
+          letter-spacing: -0.13px;
+          text-align: center;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+}

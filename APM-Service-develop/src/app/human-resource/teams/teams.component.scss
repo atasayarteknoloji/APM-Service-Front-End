@@ -1,0 +1,147 @@
+@import "../../scss/ui/_variable.scss";
+@import "../../scss/ui/_mixins";
+@import "~bootstrap/scss/bootstrap";
+.container{
+  display: flex;
+  flex-direction: column;
+  min-width: 700px;
+  min-height: 700px;
+  margin-bottom: 25px;
+  .title{
+    opacity: 0.78;
+    font-size: 48px;
+    font-weight: 900;
+    letter-spacing: -0.51px;
+    color: #111111;
+    text-align: center;
+  }
+  .search-container{
+    text-align: center;
+    margin-top: 20px;
+    .search {
+      width: size(455px);
+      height: size(35px);
+      margin-bottom: size(20px);
+      padding-left: 20px;
+      color: gray;
+      border-radius: size(20px);
+      box-shadow: 0 0 size(10px) 0 rgba(106, 120, 245, 0.15);
+      border: solid 1px #eaeaea;
+      background-color: map-get($colors, white);
+    }
+
+    ::placeholder {
+      padding-left: 30px;
+      opacity: 0.4;
+      font-size: size(14px);
+      color: var(--greyish-brown);
+    }
+  }
+  .actions-container{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    .actions{
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin-right: 30px;
+      .btn-actions{
+        button{
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: none;
+          background: #ffffff;
+          color: map-get($colors, apm-primary);
+          border: 1px solid map-get($colors, apm-primary);
+        }
+        :hover{
+          background: map-get($colors, apm-primary);
+          color: #ffffff;
+        }
+      }
+      .action-name{
+        font-weight: 500;
+      }
+    }
+  }
+  .employees{
+    justify-content: center;
+    .employee{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px 0 rgba(106, 120, 245, 0.15);
+      border: solid 1px #eaeaea;
+      margin: 10px;
+      height: 210px;
+
+      .employee-photo{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .photo1{
+          position: absolute;
+          left: 60px;
+          z-index: 0;
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          box-shadow: 0 0 10px 0 rgba(106, 120, 245, 0.15);
+          border: solid 2px #f7eeff;
+          box-shadow: 0 0 10px 2px grey;
+        }
+        .photo2{
+          position: relative;
+          z-index: 1;
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          box-shadow: 0 0 10px 0 rgba(106, 120, 245, 0.15);
+          border: solid 2px #f7eeff;
+          box-shadow: 0 0 10px 2px grey;
+        }
+        .photo3{
+          position: absolute;
+          right: 60px;
+          z-index: 0;
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          box-shadow: 0 0 10px 0 rgba(106, 120, 245, 0.15);
+          border: solid 2px #f7eeff;
+          box-shadow: 0 0 10px 2px grey;
+        }
+      }
+      .employee-data{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        .name{
+          color: map-get($colors, apm-dark);
+          font-weight: 500;
+        }
+        .department{
+          font-weight: 500;
+        }
+        .person-title{
+          font-size: 12px;
+          font-style: italic;
+          color: gray;
+        }
+      }
+    }
+    .employee:hover{
+      cursor: pointer;
+      border: 1px solid #80808063;
+    }
+  }
+}
+

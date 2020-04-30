@@ -1,0 +1,104 @@
+@import 'themes';
+@import "app/scss/ui/_variable.scss";
+@import "app/scss/ui/_mixins";
+@import "~bootstrap/scss/bootstrap";
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
+// regular style toast
+@import '~ngx-toastr/toastr';
+
+// bootstrap style toast
+// or import a bootstrap 4 alert styled design (SASS ONLY)
+// should be after your bootstrap imports, it uses bs4 variables, mixins, functions
+@import '~ngx-toastr/toastr-bs4-alert';
+
+// if you'd like to use it without importing all of bootstrap it requires
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~ngx-toastr/toastr-bs4-alert';
+
+
+// :: FOR FONT FACE
+
+body {
+  font-size: .9rem;
+  background-color: map_get($colors,black_squeeze);
+  overflow: auto;
+  font-family: $font-default;
+
+}
+
+.page-wrapper.toggled .sidebar {
+  left: -300px;
+}
+
+// angular perfect scrollbar style
+.sidebar .ps.ps--scrolling-y>.ps__rail-y,
+.sidebar>.ps.ps--scrolling-x>.ps__rail-x,
+.ps .ps__rail-x:hover,
+.ps .ps__rail-y:hover,
+.ps .ps__rail-x:focus,
+.ps .ps__rail-y:focus,
+.ps .ps__rail-x.ps--clicking,
+.ps .ps__rail-y.ps--clicking {
+  background-color: transparent !important;
+}
+
+.sidebar .ps.ps--active-y>.ps__rail-y:hover,
+.sidebar>.ps.ps--active-y>.ps__rail-y.ps--clicking {
+  width: 10px !important;
+}
+
+.ps__thumb-y {
+  background-color: #fff !important;
+  width: 6px!important;
+  border-radius: 0px!important;
+  opacity: .5;
+
+}
+
+.request-form {
+  padding:size(25px);
+  border-radius: size(5px);
+  box-shadow:2px 6px 15px 0px rgba(69, 65, 78, 0.1);
+  border: solid size(1px) #eaeaea;
+  background-color: map-get($colors, white);
+  @include media-breakpoint-down(sm) {
+    width: size(300px);
+  }
+
+  @include media-breakpoint-only(md) {
+    width: size(500px);
+  }
+
+  @include media-breakpoint-up(lg) {
+   // width: size(800px);
+  }
+
+}
+
+html, body { height: 100%;
+  overflow: auto; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow: auto;}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+//:container ı ez
+.container{
+  @media (min-width: 1200px) {
+    min-width: 1140px;
+    width: 100% !important;
+    max-width: none;
+  }
+}

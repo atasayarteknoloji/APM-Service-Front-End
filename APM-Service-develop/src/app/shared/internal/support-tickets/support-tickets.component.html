@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="card-header">
+    <div class="card-header-row">
+      <div class="card-title">
+        İş Havuzum
+      </div>
+      <div class="card-tools">
+        <ul class="nav">
+          <li class="nav-item ">
+            <a [class]="isClickedDaily === true?'active nav-link':'nav-link'"
+              (click)="showSupportTickets('daily')">Günlük</a>
+          </li>
+          <li class="nav-item">
+            <a [class]="isClickedWeekly === true?'active nav-link':'nav-link'"
+              (click)="showSupportTickets('weekly')">Haftalık</a>
+          </li>
+          <li class="nav-item">
+            <a [class]="isClickedMonthly === true?'active nav-link':'nav-link'"
+              (click)="showSupportTickets('monthly')">Aylık</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div *ngFor="let ticket of supportTicketModel">
+      <div class="d-flex" (click)="onUserRowSelect(ticket.requestsId)">
+        <div class="avatar">
+          <span class="avatar-title blue">{{name}}</span>
+        </div>
+        <div class="flex-1 ml-3 pt-1">
+          <div class="text-uppercase fw-bold mb-1">
+            {{ticket.userName}}
+            <span class="text-warning pl-3">{{ticket.name}}</span>
+          </div>
+          <span class="text-muted">{{ticket.subject}}</span>
+        </div>
+        <div class="float-right pt-1 date">
+          <div class="text-muted"> {{ticket.date}} gün önce oluşturuldu</div>
+          <i (click)="startAction(ticket.requestsId)" class="fas fa-play"></i>
+          <i (click)="pauseAction(ticket.requestsId)" class="fas fa-pause"></i>
+          <i (click)="stopAction(ticket.requestsId)" class="fas fa-stop"></i>
+        </div>
+      </div>
+      <div class="separator"></div>
+    </div>
+  </div>
+</div>

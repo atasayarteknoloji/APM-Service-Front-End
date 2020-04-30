@@ -1,0 +1,53 @@
+<div class="request-form">
+    
+
+        <div class="employee col-lg-12" *ngFor="let customer of customerdetail">
+
+            <div class="employee-data">
+                <div class="card-header">
+                    <h5 class="card-title"> Müşteri Bilğileri </h5>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <h6> Müşteri Numarası</h6>
+                                <label>{{customer.idCostumer}}</label>
+                                <h6> İsim</h6>
+                                <label>{{customer.name}}</label>
+                                <h6>Soyisim</h6>
+                                <label>{{customer.family}}</label>
+                                <h6>Mail Adresi</h6>
+                                <label>{{customer.mailAdress}}</label>
+                                <h6>Telefon Numarası</h6>
+                                <label>{{customer.telephon}}</label>
+                                <h6>Şirket İsimi </h6>
+                                <label>{{customer.company}}</label>
+                               
+                            </div>
+                            <div class="col-lg-6">
+                                <h6>Şirket Adressi</h6>
+                                <label>{{customer.adresss}}</label>
+                                <h6>Mac Adressi </h6>
+                                <label>{{customer.macAdress}}</label>
+                                <h6>Hard Numarası</h6>
+                                <label> {{customer.hddNumber}}</label>
+                                <h6>lisans Numarası </h6>
+                                <label> {{customer.liKey}}     </label>
+                                <h6>lisans Başlangıç tarihi</h6>
+                                <label> {{customer.startDate}}</label>
+                                <h6>lisans Bitiş tarihi</h6>
+                                <label>{{customer.endDate}}</label>
+                            </div>
+                        </div>
+                        
+                        <div class="btn-back-row">
+                          <button  [routerLink]="['/backup-list']" class="btn btn-back">Kapat</button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>

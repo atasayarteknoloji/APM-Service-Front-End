@@ -1,0 +1,22 @@
+export enum ROUTING {
+  LOGIN = 'login',
+  LOGOUT = 'logout',
+  FORGOT_PASSWORD = 'forgot-password',
+  REQUEST = 'request',
+  REQUEST_LIST = 'request-list',
+  REQUEST_OPEN = 'request-open',
+  REQUEST_DETAIL = 'request-detail',
+  REQUEST_ASSIGN = 'request-assign',
+  REQUEST_CUSTOMERDETAIL = 'customer-detail',
+  REQUEST_CUSTOMEREDIT = 'customer-edit',
+  EMPLOYEES = 'employee-list',
+  TEAMS= 'teams',
+  TEAM_DETAIL= 'team-detail',
+  NEW_EMPLOYEE= 'new-employee',
+  BACKUP_LIST='backup-list',
+  HOME='home',
+  REQUEST_POOL = 'request-pool',
+  HUMAN_RESOURCE='human-resource',
+  CLOSED_TICKET="closed-ticket",
+  SUPPORT_TICKET ="support-ticket"
+}

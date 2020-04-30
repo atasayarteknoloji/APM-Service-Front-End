@@ -1,0 +1,148 @@
+<app-page-header [title]="title"
+                [subtitle]="subtitle">
+</app-page-header>
+
+<app-breadcrumb></app-breadcrumb>
+<div class="form-container">
+<form [formGroup]="createRequestForm"
+      (ngSubmit)="onClickSubmit()"
+      class="request-form">
+  <div class="card-body row">
+    <!-- SELECT CARI : START-->
+    <div class="col-sm-12 col-md-6 form-group"
+         *ngIf="this.roleId!=ROLETYPE.CUSTOMER">
+      <div class="col-sm-12">
+        <div class="title">
+          Cari
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <select formControlName="customerName" class="custom-select">
+          <option selected>Seçiniz...</option>
+          <option *ngFor="let company of companyModel"
+                  [value]="company.id"
+          >{{company.name}}</option>
+        </select>
+      </div>
+    </div>
+    <!-- SELECT CARI :END -->
+
+    <!-- SELECT REQUEST TYPE: START-->
+    <div class="col-sm-12 col-md-6 form-group">
+      <div class="col-sm-12">
+        <div class="title">
+          Talep Tipi
+        </div>
+      </div>
+      <div class="col-sm-12">
+
+        <select formControlName="requestName"
+                class="custom-select"
+                [ngClass]="{ 'is-invalid': submitted && f.requestName.errors }"
+                (change)="changeRequestOption($event.target.value)">
+          <option selected>Seçiniz...</option>
+          <option *ngFor="let request of requestModel"
+                  [value]="request.id"
+          >{{request.name}}</option>
+        </select>
+        <div *ngIf="submitted && f.requestName.errors" class="invalid-feedback">
+          <div *ngIf="f.requestName.errors.required">Talep tipi seçiniz!</div>
+        </div>
+      </div>
+    </div>
+    <!-- SELECT REQUEST TYPE: END-->
+
+    <!--SELECT ITEM TYPE: START-->
+    <div class="col-sm-12 col-md-6 form-group">
+      <div class="col-sm-12">
+        <div class="title">
+          Ürün Türü
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <select class="custom-select"
+                formControlName="itemName"
+                [ngClass]="{ 'is-invalid': submitted && f.itemName.errors }">
+          <option selected>Seçiniz...</option>
+          <option *ngFor="let item of itemModel"
+                  [value]="item.id">
+            {{item.name}}
+          </option>
+        </select>
+
+        <div *ngIf="submitted && f.itemName.errors" class="invalid-feedback">
+          <div *ngIf="f.itemName.errors.required">Ürün türü !</div>
+        </div>
+      </div>
+    </div>
+    <!-- SELECT ITEM TYPE :END-->
+    <!--
+    <div class="row form-row-item" *ngIf="this.roleId!=ROLETYPE.CUSTOMER">
+      <div class="col-sm-12 col-md-2">
+        <div class="title">
+          Önceliklendirme
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-10">
+        <div class="priorities">
+          <div class="priority first">
+            Acil
+          </div>
+          <div class="priority second">
+            Normal
+          </div>
+          <div class="priority third">
+            Düşük
+          </div>
+        </div>
+      </div>
+    </div>
+   SELECT PRIORITY :END -->
+    <!-- TEXTAREA SUBJECT :START-->
+    <div class="col-sm-12 col-md-6 form-group">
+      <div class="col-sm-12">
+        <div class="title">
+          Konu
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <textarea formControlName="subject"
+                  class="form-control"
+                  rows="1"
+                  [ngClass]="{ 'is-invalid': submitted && f.subject.errors }">
+        </textarea>
+        <div *ngIf="submitted && f.subject.errors" class="invalid-feedback">
+          <div *ngIf="f.subject.errors.required">Konu  giriniz!</div>
+        </div>
+      </div>
+    </div>
+    <!-- TEXTAREA SUBJECT :END-->
+
+    <!-- TEXTAREA DETAIL:START-->
+    <div class="col-12 form-group">
+      <div class="col-sm-12">
+        <div class="title">
+          Açıklama
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <textarea  formControlName="description"
+                   class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+                  rows="3"></textarea>
+        <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+          <div *ngIf="f.description.errors.required">Açıklama giriniz!</div>
+        </div>
+      </div>
+    </div>
+    <!--TEXTAREA DETAIL:END-->
+    <!--BUTTON SUBMIT :START-->
+    <div class="col-12 form-group">
+      <div class="col-12">
+        <button type="submit" class="submit-button">Kaydet</button>
+      </div>
+    </div>
+    <!--BUTTON SUBMIT :END-->
+  </div>
+</form>
+</div>

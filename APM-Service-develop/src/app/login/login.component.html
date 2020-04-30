@@ -1,0 +1,47 @@
+﻿<div class="page">
+  <div class="logo-container">
+    <img class="logo" src="../../assets/img/Logo.png">
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <img  class="left-background" src="../../assets/img/background.png">
+    </div>
+    <div class="col-md-4 mt-5">
+      <div class="login-card">
+        <div class="welcome">Hoşgeldiniz!</div>
+        <div class="text-center">Atasayar servis yazılımıyla servis süreçlerinizi tek bir yerden kolaylıkla yönetin.</div>
+        <div class="">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label class="text-center form-title" for="username">Email</label>
+              <input type="email"
+                     formControlName="username"
+                     class="form-control form-radius"
+                     [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+                     required
+                     email/>
+              <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Lütfen emailinizi giriniz.</div>
+                <div *ngIf="f.username.errors.email">Lütfen uygun formatta bir email giriniz.</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="text-center form-title" for="password">Şifre</label>
+              <input type="password " formControlName="password" class="form-control form-radius"
+                     [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Lütfen şifrenizi giriniz</div>
+              </div>
+            </div>
+            <button [disabled]="loading" class="btn w-100 btn-primary form-radius">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
+              Giriş
+            </button>
+            <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
